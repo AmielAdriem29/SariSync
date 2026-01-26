@@ -24,12 +24,28 @@
 - current_stock
 - min_stock
 
+**StockMovement**
+- id (PK)
+- product_id (FK -> Product)
+- user_id (FK -> User)
+- type (IN, OUT, ADJUSTMENT)
+- quantity
+- reason (e.g., "Restock", "Damage", "Sale")
+- created_at (Timestamp)
+
+**Debtor**
+- id (PK)
+- store_id (FK -> Store)
+- name (Unique)
+- phone_number (Optional)
+- created_at (Timestamp)
+
 **Transaction**
 - id (PK)
 - user_id (FK -> User)
+- debtor_id (FK -> Debtor, Optional)
 - total_amount
 - payment_type (CASH, CREDIT)
-- customer_name (Optional)
 - is_settled (Boolean)
 - created_at (Timestamp)
 
@@ -39,6 +55,14 @@
 - product_id (FK -> Product)
 - quantity
 - price_at_sale
+
+**Credit**
+- id (PK)
+- transaction_id (FK -> Transaction)
+- debtor_id (FK -> Debtor)
+- amount_paid
+- remaining_balance_at_time
+- paid_at (Timestamp)
 
 **Expense**
 - id (PK)
