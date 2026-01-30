@@ -1,5 +1,13 @@
+# Dependency directories
 node_modules/
-.expo/
+
+# Environment variables (SECURITY!)
 .env
-dist/
+
+# OS-specific files (Arch/Linux)
+.DS_Store
 *.log
+
+# Build files
+dist/
+build/
