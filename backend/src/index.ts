@@ -1,4 +1,4 @@
-import express from 'express';
+productsRouterimport express from 'express';
 import productsRouter from './routes/products'
 
 const app = express()
