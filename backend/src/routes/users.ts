@@ -21,6 +21,7 @@ router.post('/', async (req, res) => {
       VALUES ($1, $2, $3, $4) RETURNING *`,
       [store_id, username, password_hash, role]
     )
+    res.status(201).json(result.rows[0])
   } catch (error) {
     console.error(error)
     res.status(500).json({ error: 'Error posting users'})
