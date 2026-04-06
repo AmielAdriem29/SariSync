@@ -1,5 +1,6 @@
 import pool from '../db';
 import express from 'express';
+import bcrypt from 'bcrypt';
 
 const router = express.Router();
 
@@ -15,8 +16,14 @@ router.get('/', async (req, res) => {
 
 router.post('/', async (req, res) => {
   try {
-    const { store_id, username, password_hash, role } = req.body
-    const result = await pool.query(
+    const { store_id, username, password, role } = req.body
+
+    if (!username) return res.status(400).json({error:'Username is missing'})
+    if (!password) return res.status(400).json({error:'Password is missing'})
+
+    const password_hash = await bcrypt.hash(password, 10)
+
+      const result = await pool.query(
       `INSERT INTO users (store_id, username, password_hash, role) 
       VALUES ($1, $2, $3, $4) RETURNING *`,
       [store_id, username, password_hash, role]
