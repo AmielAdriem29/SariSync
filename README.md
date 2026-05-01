@@ -1,22 +1,6 @@
 # SariSync
 
-SariSync is a modern, full-stack Point-of-Sale (POS) and Inventory Management system tailored specifically for the unique needs of Philippine sari-sari stores. It aims to digitize the traditional *utang* notebook and manual inventory tracking through a streamlined mobile experience.
-
----
-
-## 🚀 Tech Stack
-
-Full-stack TypeScript architecture for type safety and consistency from the database to the mobile interface.
-
-| Layer | Technology | Purpose |
-|---|---|---|
-| Frontend | React Native (TypeScript) | Cross-platform mobile application for store owners and staff |
-| Backend | Node.js + Express (TypeScript) | High-performance API handling business logic and routing |
-| Database | PostgreSQL 15 | Relational data storage for inventory, stores, and users |
-| Infrastructure | Docker | Containerized database for consistent environments across development and production |
-| Database Driver | Raw SQL (`pg`) | Direct database communication without an ORM for maximum control and performance |
-
----
+SariSync is a modern, full-stack Point-of-Sale (POS) and Inventory Management system tailored specifically for the day-to-day operations of my parent's sari-sari store. It aims to digitize the traditional *utang* notebook and manual inventory tracking through a streamlined mobile experience.
 
 ## ✨ Key Features
 
