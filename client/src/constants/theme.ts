@@ -60,11 +60,11 @@ export const Spacing = {
 } as const;
 
 export const FontSizes = {
-  small: 10,
-  label: 12,
-  body: 14,
-  title: 18,
-  heading: 24,
+  small: 12,
+  label: 14,
+  body: 18,
+  title: 24,
+  heading: 30,
 } as const;
 
 export const FontWeights = {

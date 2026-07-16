@@ -3,7 +3,7 @@ import { useColorScheme, Text, Pressable, StyleSheet } from 'react-native';
 import Entypo from '@expo/vector-icons/Entypo';
 import { View } from 'react-native';
 import FontAwesome5 from '@expo/vector-icons/FontAwesome5';
-import { Colors } from '@/constants/theme';
+import { Colors, FontSizes, FontWeights, BorderRadius, IconSizes } from '@/constants/theme';
 import Ionicons from '@expo/vector-icons/Ionicons';
 import FontAwesome6 from '@expo/vector-icons/FontAwesome6';
 
@@ -20,7 +20,12 @@ export default function NavigationTabs() {
   ] as const;
 
   return (
-    <Tabs>
+    <Tabs screenOptions={{
+      headerShown: false,
+      tabBarStyle: {
+        height: 55
+      },
+    }}>
       { navTabs.map(( tab ) => (
         <Tabs.Screen
           key={tab.name}
@@ -29,20 +34,20 @@ export default function NavigationTabs() {
             title: tab.name === 'custom' ? '' : tab.name.charAt(0).toUpperCase() + tab.name.slice(1),
             tabBarIcon: ({ focused }) => (
               tab.name === 'custom' ? (
-                <View style={[{ 
-                    backgroundColor: colors.primary, 
-                    borderRadius: 20, 
+                <View style={[{
+                    backgroundColor: colors.primary,
+                    borderRadius: BorderRadius.medium,
                     width: 35,
                     height: 35,
                     justifyContent: 'center',
                     alignItems: 'center'
                   }]}>
-                  <tab.Icon name={tab.iconName} size={24} color="#FFFFFF" />
+                  <tab.Icon name={tab.iconName} size={IconSizes.medium} color={colors.white} />
                 </View>
               ) : (
                 <tab.Icon
                   name={tab.iconName}
-                  size={24}
+                  size={IconSizes.medium}
                   color={focused ? colors.primary : colors.neutral}
                 />
               )
@@ -50,8 +55,8 @@ export default function NavigationTabs() {
             tabBarLabel: tab.name === 'custom' ? () => null : ({ focused, children }) => (
               <Text
                 style={{
-                  fontSize: 10,
-                  fontWeight: focused ? '600' : '400',
+                  fontSize: FontSizes.small,
+                  fontWeight: focused ? FontWeights.bold : FontWeights.regular,
                   color: colors.neutral
                 }}>
                 {children}
