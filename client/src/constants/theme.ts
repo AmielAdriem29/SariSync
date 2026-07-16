@@ -59,5 +59,47 @@ export const Spacing = {
   six: 64,
 } as const;
 
+export const FontSizes = {
+  small: 10,
+  label: 12,
+  body: 14,
+  title: 18,
+  heading: 24,
+} as const;
+
+export const FontWeights = {
+  regular: '400',
+  medium: '500',
+  bold: '700',
+} as const;
+
+export const BorderRadius = {
+  small: 8,
+  medium: 20,
+  large: 24,
+  full: 999,
+} as const;
+
+export const IconSizes = {
+  small: 16,
+  medium: 24,
+  large: 28,
+} as const;
+
+export const Shadows = {
+  raised: {
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.25,
+    shadowRadius: 6,
+    elevation: 5,
+  },
+} as const;
+
+export const Opacity = {
+  pressed: 0.7,
+  disabled: 0.4,
+} as const;
+
 export const BottomTabInset = Platform.select({ ios: 50, android: 80 }) ?? 0;
 export const MaxContentWidth = 800;
