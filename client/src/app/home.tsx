@@ -39,7 +39,7 @@ export default function Home(){
         ))}
       </View>
       {/* Past transactions */}
-      <View>
+      <View style={{ flex: 1 }}>
         <Text style={{ fontWeight: 'bold', fontSize: FontSizes.body, color: colors.neutral }}>Past Transactions</Text>
         <Text style={{ fontWeight: 'semibold', fontSize: FontSizes.label, color: colors.neutral, marginBottom: Spacing.one }}>January 26, 2026</Text>
         <FlatList
