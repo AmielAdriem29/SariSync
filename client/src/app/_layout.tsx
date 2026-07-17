@@ -2,7 +2,7 @@ import { DarkTheme, DefaultTheme, ThemeProvider } from 'expo-router';
 import { useColorScheme, View, StyleSheet, Text } from 'react-native';
 import NavigationTabs from '@/components/navigation-bar';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { Colors, FontSizes, FontWeights, BorderRadius, IconSizes } from '@/constants/theme';
+import { Colors, FontSizes, FontWeights, BorderRadius, IconSizes, Spacing } from '@/constants/theme';
 import Ionicons from '@expo/vector-icons/Ionicons';
 
 export default function TabLayout() {
@@ -17,7 +17,7 @@ export default function TabLayout() {
               display: 'flex', 
               flexDirection: 'row',
               justifyContent: 'space-between',
-              margin: 20
+              padding: Spacing.four
             }}
           >
             <View style={{ 
@@ -54,7 +54,6 @@ const styles = StyleSheet.create({
   },
   itemsWrapper: {
     flex: 1,
-    backgroundColor: '#FFFFFF',
     borderTopLeftRadius: BorderRadius.large,
     borderTopRightRadius: BorderRadius.large,
     overflow: 'hidden',
