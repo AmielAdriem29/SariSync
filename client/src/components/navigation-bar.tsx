@@ -1,9 +1,8 @@
 import { Tabs } from 'expo-router';
-import { useColorScheme, Text, Pressable, StyleSheet } from 'react-native';
+import { useColorScheme, Text, View } from 'react-native';
 import Entypo from '@expo/vector-icons/Entypo';
-import { View } from 'react-native';
 import FontAwesome5 from '@expo/vector-icons/FontAwesome5';
-import { Colors, FontSizes, FontWeights, BorderRadius, IconSizes } from '@/constants/theme';
+import { Colors, IconSizes } from '@/constants/theme';
 import Ionicons from '@expo/vector-icons/Ionicons';
 import FontAwesome6 from '@expo/vector-icons/FontAwesome6';
 
@@ -34,14 +33,7 @@ export default function NavigationTabs() {
             title: tab.name === 'custom' ? '' : tab.name.charAt(0).toUpperCase() + tab.name.slice(1),
             tabBarIcon: ({ focused }) => (
               tab.name === 'custom' ? (
-                <View style={[{
-                    backgroundColor: colors.primary,
-                    borderRadius: BorderRadius.medium,
-                    width: 35,
-                    height: 35,
-                    justifyContent: 'center',
-                    alignItems: 'center'
-                  }]}>
+                <View className="bg-primary rounded-[20px] w-[35px] h-[35px] items-center justify-center">
                   <tab.Icon name={tab.iconName} size={IconSizes.medium} color={colors.white} />
                 </View>
               ) : (
@@ -53,12 +45,7 @@ export default function NavigationTabs() {
               )
             ),
             tabBarLabel: tab.name === 'custom' ? () => null : ({ focused, children }) => (
-              <Text
-                style={{
-                  fontSize: FontSizes.small,
-                  fontWeight: focused ? FontWeights.bold : FontWeights.regular,
-                  color: colors.neutral
-                }}>
+              <Text className={`text-xs text-neutral ${focused ? 'font-bold' : 'font-normal'}`}>
                 {children}
               </Text>
             )

@@ -1,8 +1,8 @@
 import { DarkTheme, DefaultTheme, ThemeProvider } from 'expo-router';
-import { useColorScheme, View, StyleSheet, Text } from 'react-native';
+import { useColorScheme, View, Text } from 'react-native';
 import NavigationTabs from '@/components/navigation-bar';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { Colors, FontSizes, FontWeights, BorderRadius, IconSizes, Spacing } from '@/constants/theme';
+import { Colors, IconSizes } from '@/constants/theme';
 import Ionicons from '@expo/vector-icons/Ionicons';
 
 export default function TabLayout() {
@@ -10,52 +10,26 @@ export default function TabLayout() {
   const colors = Colors[colorScheme === 'unspecified' ? 'light' : colorScheme];
 
   return (
-    <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-      <SafeAreaView edges={['top', 'bottom']} style={[styles.root, { backgroundColor: colors.primary }]}>
-        <View style={[{ backgroundColor: colors.primary }]} />
-          <View style={{ 
-              display: 'flex', 
-              flexDirection: 'row',
-              justifyContent: 'space-between',
-              padding: Spacing.four
-            }}
-          >
-            <View style={{ 
-              display: 'flex', 
-              flexDirection: 'row',
-              gap: 8
-            }}>
-              <Ionicons style={{
-                backgroundColor: colors.white,
-                borderRadius: BorderRadius.medium,
-                alignSelf: 'center',
-                padding: 6
-              }} name="person" size={IconSizes.medium} color={colors.neutral} />
-              <View>
-                <Text style={{ fontSize: FontSizes.label, color: colors.white, fontWeight: FontWeights.bold }}>John Doe</Text>
-                <Text style={{ fontSize: FontSizes.small, color: colors.white }}>Owner</Text>
-              </View>
+    <ThemeProvider value={colorScheme === 'light' ? DarkTheme : DefaultTheme}>
+      <SafeAreaView edges={['top', 'bottom']} className="flex-1 bg-primary">
+        <View className="flex-row justify-between p-6">
+          <View className="flex-row items-center gap-2">
+            <View className="bg-white rounded-[20px] self-center p-1.5">
+              <Ionicons name="person" size={IconSizes.medium} color={colors.neutral} />
             </View>
-
-            <Ionicons name="notifications" size={IconSizes.medium} color={colors.white} />
+            <View>
+              <Text className="text-white font-bold text-sm">John Doe</Text>
+              <Text className="text-white text-xs">Owner</Text>
+            </View>
           </View>
-        
-        <View style={styles.itemsWrapper}>
+
+          <Ionicons name="notifications" size={IconSizes.medium} color={colors.white} />
+        </View>
+
+        <View className="flex-1 rounded-t-2xl overflow-hidden">
           <NavigationTabs />
         </View>
       </SafeAreaView>
     </ThemeProvider>
   );
 }
-
-const styles = StyleSheet.create({
-  root: {
-    flex: 1,
-  },
-  itemsWrapper: {
-    flex: 1,
-    borderTopLeftRadius: BorderRadius.large,
-    borderTopRightRadius: BorderRadius.large,
-    overflow: 'hidden',
-  },
-});

@@ -1,9 +1,9 @@
-import { View, Text, StyleSheet, useColorScheme, FlatList } from 'react-native'
+import { View, Text, useColorScheme, FlatList } from 'react-native'
 import FontAwesome6 from '@expo/vector-icons/FontAwesome6';
 import FontAwesome from '@expo/vector-icons/FontAwesome';
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 import MaterialIcons from '@expo/vector-icons/MaterialIcons';
-import { BorderRadius, Colors, FontSizes, FontWeights, IconSizes, Spacing } from '@/constants/theme';
+import { Colors, IconSizes } from '@/constants/theme';
 
 const sampleDashboardItems = [
   { name: 'Revenue', value: 2000, Icon: FontAwesome6, iconName: 'peso-sign'},
@@ -24,79 +24,38 @@ export default function Home(){
   const colors = Colors[scheme === 'unspecified' ? 'light' : scheme];
 
   return (
-    <View style={[styles.container]}>
-      <View style={styles.grid}>
+    <View className="flex-1 p-6 gap-4">
+      <View className="flex-row flex-wrap justify-between gap-1 sm:gap-y-4">
         {sampleDashboardItems.map((item) => (
-          <View key={item.name} style={[styles.card, { backgroundColor: colors.secondary }]}>
-            <View style={[styles.iconBadge, { backgroundColor: colors.white }]}>
+          <View key={item.name} className="w-[49%] bg-secondary p-4 gap-2 rounded-2xl">
+            <View className="w-8 h-8 rounded-full bg-white items-center justify-center">
               <item.Icon name={item.iconName} size={IconSizes.small} color={colors.primary} />
             </View>
-            <Text style={{ fontSize: FontSizes.heading, fontWeight: FontWeights.bold, color: colors.white }}>
-              {item.value}
-            </Text>
-            <Text style={{ fontSize: FontSizes.label, color: colors.white }}>{item.name}</Text>
+            <Text className="text-3xl font-bold text-white">{item.value}</Text>
+            <Text className="text-sm text-white">{item.name}</Text>
           </View>
         ))}
       </View>
       {/* Past transactions */}
-      <View style={{ flex: 1 }}>
-        <Text style={{ fontWeight: 'bold', fontSize: FontSizes.body, color: colors.neutral }}>Past Transactions</Text>
-        <Text style={{ fontWeight: 'semibold', fontSize: FontSizes.label, color: colors.neutral, marginBottom: Spacing.one }}>January 26, 2026</Text>
+      <View className="flex-1">
+        <Text className="font-bold text-lg text-neutral">Past Transactions</Text>
+        <Text className="font-semibold text-sm text-neutral mb-1">January 26, 2026</Text>
         <FlatList
+          className="flex-1"
           data={mockData}
-          contentContainerStyle={{ gap: Spacing.two }}
+          contentContainerClassName="gap-2"
           renderItem={({ item }) => (
-            <View
-              style={{
-                flex: 1,
-                backgroundColor: '#c2bbbb',
-                borderRadius: BorderRadius.small,
-                padding: Spacing.two
-              }}
-            >
-              <View 
-                style={{ 
-                  display: 'flex', 
-                  flexDirection: 'row', 
-                  justifyContent: 'space-between'
-                }}>
-                <Text style={{ fontWeight: 'bold', color: colors.neutral, fontSize: FontSizes.label }}>ID: {item.ID}</Text>
-                <Text style={{ fontWeight: 'bold', color: colors.neutral, fontSize: FontSizes.label }}>{item.time}</Text>
+            <View className="flex-1 bg-neutral/40 rounded-lg px-3 py-2 gap-0.5">
+              <View className="flex-row justify-between">
+                <Text className="font-bold text-neutral text-sm">ID: {item.ID}</Text>
+                <Text className="font-bold text-neutral text-sm">Time: {item.time}</Text>
               </View>
-              <Text style={{ fontWeight: FontWeights.medium, color: colors.neutral, fontSize: FontSizes.label }}>Php {item.amount}</Text>
-              <Text style={{ fontWeight: FontWeights.medium, color: colors.neutral, fontSize: FontSizes.label }}>[{item.staffAssigned}]</Text>
+              <Text className="font-medium text-neutral text-sm">Php {item.amount}</Text>
+              <Text className="font-medium text-neutral text-sm">[{item.staffAssigned}]</Text>
             </View>
           )}
-
         />
       </View>
     </View>
   )
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    padding: Spacing.four,
-    gap: Spacing.three,
-  },
-  grid: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    justifyContent: 'space-between',
-    rowGap: Spacing.three,
-  },
-  card: {
-    width: '48%',
-    padding: Spacing.three,
-    gap: Spacing.two,
-    borderRadius: BorderRadius.small,
-  },
-  iconBadge: {
-    width: 32,
-    height: 32,
-    borderRadius: BorderRadius.full,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-})

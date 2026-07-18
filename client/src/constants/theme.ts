@@ -74,14 +74,14 @@ export const FontWeights = {
 } as const;
 
 export const BorderRadius = {
-  small: 8,
+  small: 16,
   medium: 20,
-  large: 24,
+  large: 32,
   full: 999,
 } as const;
 
 export const IconSizes = {
-  small: 16,
+  small: 20,
   medium: 24,
   large: 28,
 } as const;
