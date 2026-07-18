@@ -1,7 +1,5 @@
-import { View, Text, useColorScheme, Image, FlatList } from 'react-native'
-import Feather from '@expo/vector-icons/Feather';
-import { Colors, IconSizes } from '@/constants/theme';
-import Entypo from '@expo/vector-icons/Entypo';
+import { View, Text, Image, FlatList } from 'react-native'
+import SearchBar from '@/components/search-bar';
 
 const sampleProducts = [
   { ID: 1, name: 'Coke', SRP: '85.00', WSP: '78.00' },
@@ -15,17 +13,9 @@ const sampleProducts = [
 ]
 
 export default function Products() {
-  const scheme = useColorScheme();
-  const colors = Colors[scheme === 'unspecified' ? 'light' : scheme];
-
   return (
     <View className="flex-1 p-6 gap-4">
-      {/* Searchbar */}
-      <View className="rounded-lg flex-row justify-between items-center border-2 border-secondary py-1 px-2">
-        <Feather name="search" size={IconSizes.small} color={colors.primary} />
-        <Entypo name="menu" size={IconSizes.small} color={colors.neutral} />
-      </View>
-
+      <SearchBar />
       {/* Products List */}
       <FlatList
         className="flex-1"
