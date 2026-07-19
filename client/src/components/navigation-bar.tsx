@@ -100,7 +100,7 @@ export default function NavigationTabs() {
                   className={`w-[48%] aspect-[5/3] rounded-2xl items-center justify-center gap-2 ${action.className}`}
                   onPress={() => {
                     setQuickActionsVisible(false);
-                    router.push(`${action.route}`);
+                    router.push(`/${action.route}`);
                   }}
                 >
                   <action.Icon name={action.iconName} size={IconSizes.large} color={colors.white} />
