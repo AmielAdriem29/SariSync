@@ -8,6 +8,10 @@ module.exports = {
         primary: "#E63946",
         secondary: "#FF8891",
         neutral: "#6A6A6A",
+        transactionsPrimary: "#9CD88A",
+        productsPrimary: "#888DF4",
+        creditPrimary: "#FF6772",
+        expensesPrimary: "#FFA770"
       },
     },
   },

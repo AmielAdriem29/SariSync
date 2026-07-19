@@ -49,37 +49,6 @@ export const Fonts = Platform.select({
   },
 });
 
-export const Spacing = {
-  half: 2,
-  one: 4,
-  two: 8,
-  three: 16,
-  four: 24,
-  five: 32,
-  six: 64,
-} as const;
-
-export const FontSizes = {
-  small: 12,
-  label: 14,
-  body: 18,
-  title: 24,
-  heading: 30,
-} as const;
-
-export const FontWeights = {
-  regular: '400',
-  medium: '500',
-  bold: '700',
-} as const;
-
-export const BorderRadius = {
-  small: 16,
-  medium: 20,
-  large: 32,
-  full: 999,
-} as const;
-
 export const IconSizes = {
   small: 20,
   medium: 24,

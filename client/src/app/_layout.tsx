@@ -14,7 +14,7 @@ export default function TabLayout() {
       <SafeAreaView edges={['top', 'bottom']} className="flex-1 bg-primary">
         <View className="flex-row justify-between p-6">
           <View className="flex-row items-center gap-2">
-            <View className="bg-white rounded-[20px] self-center p-1.5">
+            <View className="bg-white rounded-full self-center p-1.5">
               <Ionicons name="person" size={IconSizes.medium} color={colors.neutral} />
             </View>
             <View>
