@@ -60,9 +60,9 @@ export default function RecordTransaction(){
 
         <View className="flex-1 bg-neutral/10 rounded-2xl p-2 gap-2">
           <View className="flex-row px-3">
-            <Text className="flex-[2] font-bold text-neutral">Product</Text>
-            <Text className="flex-1 font-bold text-neutral text-center">Price</Text>
-            <Text className="flex-1 font-bold text-neutral text-center">Qty.</Text>
+            <Text className="flex-[1.5] font-bold text-neutral">Product</Text>
+            <Text className="flex-[1.5] font-bold text-neutral text-center">Price</Text>
+            <Text className="flex-[0.5] font-bold text-neutral text-right">Qty.</Text>
           </View>
           <FlatList
             data={sampleItems}
@@ -70,9 +70,9 @@ export default function RecordTransaction(){
             contentContainerClassName="gap-2"
             renderItem={({ item }) => (
               <View className="flex-row items-center bg-white rounded-lg px-3 py-2">
-                <Text className="flex-[2] text-neutral">{item.name}</Text>
-                <Text className="flex-1 text-neutralt text-center">₱ {item.price.toFixed(2)}</Text>
-                <Text className="flex-1 text-neutral text-center">{item.qty}</Text>
+                <Text className="flex-[1.5] text-neutral">{item.name}</Text>
+                <Text className="flex-[1.5] text-neutralt text-center">₱ {item.price.toFixed(2)}</Text>
+                <Text className="flex-[0.5] text-neutral text-center">{item.qty}</Text>
               </View>
             )}
           />

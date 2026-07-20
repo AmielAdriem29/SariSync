@@ -10,7 +10,7 @@ module.exports = {
         neutral: "#6A6A6A",
         transactionsPrimary: "#9CD88A",
         productsPrimary: "#888DF4",
-        creditPrimary: "#FF6772",
+        creditPrimary: "white",
         expensesPrimary: "#FFA770"
       },
     },
