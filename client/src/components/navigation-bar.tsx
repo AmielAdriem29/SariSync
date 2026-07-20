@@ -25,7 +25,6 @@ export default function NavigationTabs() {
   const scheme = useColorScheme();
   const colors = Colors[scheme === 'unspecified' ? 'light' : scheme];
   const [quickActionsVisible, setQuickActionsVisible] = useState(false);
-
   const navTabs = [
     { name: 'home', Icon: Entypo, iconName: 'home' },
     { name: 'products', Icon: FontAwesome5, iconName: 'clipboard-list' },

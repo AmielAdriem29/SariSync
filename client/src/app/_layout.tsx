@@ -1,3 +1,4 @@
+
 import { DarkTheme, DefaultTheme, ThemeProvider, usePathname } from 'expo-router';
 import { useColorScheme, View, Text } from 'react-native';
 import NavigationTabs from '@/components/navigation-bar';
@@ -10,6 +11,7 @@ const noHeaderRoutes = ['/record-transaction', '/manage-products', '/manage-cred
 export default function TabLayout() {
   const colorScheme = useColorScheme();
   const colors = Colors[colorScheme === 'unspecified' ? 'light' : colorScheme];
+
   const path = usePathname();
   const showScreenHeader = !noHeaderRoutes.includes(path);
 
