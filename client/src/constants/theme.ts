@@ -49,14 +49,25 @@ export const Fonts = Platform.select({
   },
 });
 
-export const Spacing = {
-  half: 2,
-  one: 4,
-  two: 8,
-  three: 16,
-  four: 24,
-  five: 32,
-  six: 64,
+export const IconSizes = {
+  small: 20,
+  medium: 24,
+  large: 28,
+} as const;
+
+export const Shadows = {
+  raised: {
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.25,
+    shadowRadius: 6,
+    elevation: 5,
+  },
+} as const;
+
+export const Opacity = {
+  pressed: 0.7,
+  disabled: 0.4,
 } as const;
 
 export const FontSizes = {

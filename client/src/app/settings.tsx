@@ -3,7 +3,7 @@ import React from 'react'
 
 const settings = () => {
   return (
-    <View>
+    <View className="flex-1 p-6">
       <Text>settings</Text>
     </View>
   )
